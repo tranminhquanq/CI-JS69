@@ -96,8 +96,8 @@ let everyRes = numbers.every((number) => number % 2 == 0);
 
 const input = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // output: [9,8,7,6,5,4,3,2,1]
-let arr1 = [1, 2],
-  arr2 = [1, 3];
+// let arr1 = [1, 2],
+//   arr2 = [1, 3];
 
 // "abc" => "cba"
 // const arr = arr2.filter((e) => arr1.indexOf(e) === -1);
@@ -128,3 +128,71 @@ let arr1 = [1, 2],
 //   [5, 6, 7, 8, 9],
 //   [20, 21, 34, 56, 100],
 // ]);
+
+// template literal
+// let myName = "Quang";
+// let company = "Mindx";
+// let className = "CI-JS69";
+
+// let myStr = `Hello my name is ${myName}, my company is ${company}`;
+// console.log(myStr);
+
+// default param
+// const sum = (a = 0, b = 0) => a + b;
+// console.log(sum(1, 2)); // 3
+// console.log(sum(1)); //
+// console.log(sum()); //
+
+// Destructuring (array, object)
+// array
+// let skills = ["JS", "Go", "Java", "C++"];
+// let [, go, ...res] = skills;
+// console.log(go);
+// console.log(res);
+
+// object
+// let person = {
+//   id: 1,
+//   lastName: "Quang",
+//   skills: ["JS", "Go", "Java", "C++", "Python"],
+//   age: 22,
+//   pet: {
+//     name: "Tom",
+//     age: 1,
+//   },
+// };
+
+// let {
+//   id: userId,
+//   lastName,
+//   skills,
+//   age,
+//   pet: { name },
+// } = person;
+// // let lastName = person.lastName;
+// // let skills = person.skills;
+
+// console.log("lastName", lastName);
+// console.log("skills", skills);
+// console.log("id", userId);
+// console.log("petName", name);
+
+// Rest / Spread (...)
+const sum = (...params) => {
+  let total = 0;
+  params.forEach((item) => (total += item));
+  console.log(total);
+};
+
+// sum(1, 2, 4, 5, 6);
+
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1];
+arr2.push(10);
+console.log(arr1);
+console.log(arr2);
+
+// let arr2 = [4, 5, 6];
+// // console.log(arr1.concat(arr2));
+// console.log([1, 2, 4, 5, 6, 3]);
+// let arr3 = [...arr1];
