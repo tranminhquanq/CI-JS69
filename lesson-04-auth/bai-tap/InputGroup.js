@@ -2,6 +2,7 @@ class InputGroup {
   $containerEl;
   $lableEl;
   $inputEl;
+  $errorEl;
 
   constructor(type, lableName, placeholder) {
     this.$containerEl = document.createElement("div");
@@ -15,11 +16,28 @@ class InputGroup {
     this.$inputEl.type = type;
     this.$inputEl.placeholder = placeholder;
     this.$inputEl.setAttribute("class", "py-2 px-4 rounded-md");
+
+    this.$errorEl = document.createElement("p");
+  }
+
+  getInputValue() {
+    return this.$inputEl.value;
+  }
+
+  setError(message) {
+    if (message !== "") {
+      this.$errorEl.textContent = message;
+      this.$errorEl.setAttribute("class", "text-red-700 text-md font-bold");
+    } else {
+      this._errorValue = "";
+      this.$errorEl.textContent = "";
+    }
   }
 
   render() {
     this.$containerEl.appendChild(this.$lableEl);
     this.$containerEl.appendChild(this.$inputEl);
+    this.$containerEl.appendChild(this.$errorEl);
 
     return this.$containerEl;
   }
