@@ -146,8 +146,13 @@ class Register {
     this.$formEl.appendChild(this.$emailEl.render());
     this.$formEl.appendChild(this.$passwordEl.render());
     this.$formEl.appendChild(this.$confirmPasswordEl.render());
-    this.$formEl.appendChild(this.$submitButtonEl);
-    this.$formEl.appendChild(this.$goToLoginPage);
+
+    const formBottom = document.createElement("div");
+    formBottom.setAttribute("class", "flex justify-between");
+    formBottom.appendChild(this.$submitButtonEl);
+    formBottom.appendChild(this.$goToLoginPage);
+    this.$formEl.appendChild(formBottom);
+
     container.appendChild(this.$formEl);
   }
 }
