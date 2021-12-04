@@ -43,3 +43,30 @@ const appContainer = document.getElementById("app");
 const app = new App(appContainer);
 
 export default app;
+
+// class Animal {
+//   constructor(name, age) {
+//     this._name = name;
+//     this._age = age;
+//   }
+
+//   getInfo() {
+//     console.log(this._name, this._age);
+//   }
+// }
+
+// const animals = [
+//   {
+//     name: "Tom",
+//     age: 2,
+//   },
+//   {
+//     name: "Pug",
+//     age: 4,
+//   },
+// ];
+
+// animals.forEach((animal) => {
+//   const pet = new Animal(animal.name, animal.age);
+//   pet.getInfo();
+// });
