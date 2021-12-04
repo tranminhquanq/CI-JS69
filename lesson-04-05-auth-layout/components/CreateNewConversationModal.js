@@ -1,15 +1,7 @@
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
-import {
-  getFirestore,
-  addDoc,
-  collection,
-} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+import { addDoc } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+import { auth, conversationsRef } from "../constants/index.js";
 
 import InputGroup from "./InputGroup.js";
-
-const auth = getAuth();
-const db = getFirestore();
-const conversationsRef = collection(db, "conversations");
 
 export default class CreateNewConversationModal {
   $modalContainer;
@@ -46,7 +38,7 @@ export default class CreateNewConversationModal {
     const newConversation = {
       name: this.$nameInput.getInputValue(),
       creator: auth.currentUser.uid,
-      users: [auth.currentUser.uid, this.$targetUser.getInputValue()],
+      users: [auth.currentUser.email, this.$targetUser.getInputValue()],
     };
     addDoc(conversationsRef, newConversation);
     alert("Succsessfull");

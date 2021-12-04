@@ -3,7 +3,6 @@ export default class ConversationItem {
 
   constructor(conversationData) {
     this.conversation = conversationData;
-    console.log(this.conversation, "from conversationItem");
   }
 
   render(conversationsContainer) {
