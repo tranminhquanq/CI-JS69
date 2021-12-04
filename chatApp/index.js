@@ -1,12 +1,8 @@
-import {
-  getAuth,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { auth } from "./constants/index.js";
 
 import Login from "./components/Login.js";
 import Main from "./components/Main.js";
-
-const auth = getAuth();
 
 class App {
   activeScreen;

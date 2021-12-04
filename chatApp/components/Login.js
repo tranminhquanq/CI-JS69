@@ -1,14 +1,10 @@
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { auth } from "../constants/index.js";
 
 import InputGroup from "./InputGroup.js";
 import Register from "./Register.js";
 import Main from "./Main.js";
 import app from "../index.js";
-
-const auth = getAuth();
 
 export default class Login {
   $emailEl;

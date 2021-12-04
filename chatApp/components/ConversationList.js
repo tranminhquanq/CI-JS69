@@ -1,6 +1,4 @@
 import {
-  getFirestore,
-  collection,
   query,
   where,
   onSnapshot,
