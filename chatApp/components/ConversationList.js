@@ -37,7 +37,7 @@ export default class ConversationList {
     this.setupConversationListener();
   }
 
-  async setupConversationListener() {
+  setupConversationListener() {
     this.$conversationListContent.innerHTML = "";
     const q = query(
       conversationsRef,
