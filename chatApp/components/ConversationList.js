@@ -15,7 +15,10 @@ export default class ConversationList {
   $conversationListContainer;
   $conversationListContent;
 
-  constructor() {
+  _onChangeActiveConversation;
+
+  constructor(onChangeActiveConversation) {
+    this._onChangeActiveConversation = onChangeActiveConversation;
     this.$createConversationModal = new CreateNewConversationModal();
     this.$conversationListContainer = document.createElement("div");
     this.$conversationListContainer.setAttribute(
@@ -47,7 +50,13 @@ export default class ConversationList {
     onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
-          const conversationItem = new ConversationItem(change.doc.data());
+          // console.log(change.doc.data());
+          const conversationItem = new ConversationItem(
+            change.doc.data(),
+            (conversation) => {
+              this._onChangeActiveConversation(conversation);
+            }
+          );
           conversationItem.render(this.$conversationListContent);
         }
       });
