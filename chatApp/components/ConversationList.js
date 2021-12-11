@@ -50,9 +50,11 @@ export default class ConversationList {
     onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
-          // console.log(change.doc.data());
           const conversationItem = new ConversationItem(
-            change.doc.data(),
+            {
+              ...change.doc.data(),
+              conversationId: change.doc.id,
+            },
             (conversation) => {
               this._onChangeActiveConversation(conversation);
             }

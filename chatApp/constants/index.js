@@ -7,3 +7,4 @@ import {
 export const auth = getAuth();
 export const db = getFirestore();
 export const conversationsRef = collection(db, "conversations");
+export const messagesRef = collection(db, "messages");
