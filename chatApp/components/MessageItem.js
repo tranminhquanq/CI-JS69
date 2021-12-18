@@ -9,17 +9,22 @@ export default class MessageItem {
   $msgContent;
   $sender;
   $createdAt;
+  $img;
+  $video;
 
   _messageValue;
   _auth;
   constructor(messageValue) {
     this._messageValue = messageValue;
+    console.log(this._messageValue);
     this._auth = auth.currentUser;
 
     this.$msgContainer = document.createElement("div");
     this.$msgContent = document.createElement("p");
     this.$sender = document.createElement("p");
     this.$createdAt = document.createElement("p");
+    this.$img = document.createElement("img");
+    this.$video = document.createElement("video");
 
     this.$msgContent.addEventListener("dblclick", this.handleDeleteMessage);
   }
@@ -52,6 +57,16 @@ export default class MessageItem {
 
     this.$msgContent.textContent = this._messageValue.content;
     this.$sender.textContent = this._messageValue.sender;
+    if (this._messageValue.image) {
+      this.$img.src = this._messageValue.image;
+      this.$img.setAttribute("class", "w-44 object-cover");
+      this.$msgContainer.appendChild(this.$img);
+    }
+    if (this._messageValue.video) {
+      this.$video.src = this._messageValue.video;
+      this.$video.setAttribute("controls", true);
+      this.$msgContainer.appendChild(this.$video);
+    }
 
     this.$msgContainer.appendChild(this.$sender);
     this.$msgContainer.appendChild(this.$msgContent);
