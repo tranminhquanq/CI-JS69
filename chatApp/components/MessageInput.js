@@ -49,6 +49,7 @@ export default class MessageInput {
       console.log(newMessage);
       addDoc(messagesRef, newMessage);
       this.$input.value = "";
+      this.$file.value = "";
     } else {
       alert("Không được để trống nội dung");
     }
