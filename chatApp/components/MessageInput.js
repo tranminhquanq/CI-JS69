@@ -28,6 +28,7 @@ export default class MessageInput {
 
     this.$file = document.createElement("input");
     this.$file.type = "file";
+    this.$file.classList.add("custom-file-input");
     this.$file.addEventListener("change", this.onChangeUpload);
 
     this.$btn = document.createElement("button");

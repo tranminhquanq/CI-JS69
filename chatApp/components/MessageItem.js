@@ -59,11 +59,12 @@ export default class MessageItem {
     this.$sender.textContent = this._messageValue.sender;
     if (this._messageValue.image) {
       this.$img.src = this._messageValue.image;
-      this.$img.setAttribute("class", "w-44 object-cover");
+      this.$img.setAttribute("class", "w-64 mr-0 ml-auto object-cover");
       this.$msgContainer.appendChild(this.$img);
     }
     if (this._messageValue.video) {
       this.$video.src = this._messageValue.video;
+      this.$video.setAttribute("class", "w-64 mr-0 ml-auto");
       this.$video.setAttribute("controls", true);
       this.$msgContainer.appendChild(this.$video);
     }
