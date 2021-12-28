@@ -3,6 +3,7 @@ import {
   where,
   onSnapshot,
 } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
 import { auth, conversationsRef } from "../constants/index.js";
 
 import ConversationItem from "./ConversationItem.js";
@@ -14,6 +15,7 @@ export default class ConversationList {
   $createConversationModal;
   $conversationListContainer;
   $conversationListContent;
+  $logOutBtn;
 
   _onChangeActiveConversation;
 
@@ -36,6 +38,10 @@ export default class ConversationList {
     this.$newConversationButton.addEventListener("click", () => {
       this.$createConversationModal.opentModal();
     });
+
+    this.$logOutBtn = document.createElement("button");
+    this.$logOutBtn.textContent = "SignOut";
+    this.$logOutBtn.addEventListener("click", this.onSignOut);
 
     this.setupConversationListener();
   }
@@ -65,11 +71,19 @@ export default class ConversationList {
     });
   }
 
+  onSignOut = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch(() => {
+        alert("Vui long thu lai sau");
+      });
+  };
+
   render(mainContainer) {
     this.$conversationListContainer.appendChild(this.$newConversationButton);
     this.$conversationListContainer.appendChild(this.$conversationListContent);
     this.$createConversationModal.render(this.$conversationListContainer);
-
+    this.$conversationListContainer.appendChild(this.$logOutBtn);
     mainContainer.appendChild(this.$conversationListContainer);
   }
 }
